@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  redis-server:
+    build:
+      context: ./redis
+    image: 373524658093.dkr.ecr.ap-northeast-2.amazonaws.com/database/redis-server:0.0.1
+    ports:
+      - 8030:6379
+  postgresql-server:
+    build:
+      context: ./postgresql
+    image: 373524658093.dkr.ecr.ap-northeast-2.amazonaws.com/database/postgresql-server:0.0.1
+    ports:
+      - 8040:5432
+    environment:
+      POSTGRES_PASSWORD: 1234
